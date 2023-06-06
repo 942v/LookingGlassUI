@@ -33,14 +33,14 @@ struct ParallaxViewModifier: ViewModifier {
         return CGSize(width: x, height: y)
     }
     
-    func body(content: Content) -> some View {
+    func body(content: Content) -> some SwiftUI.View {
         content
             .offset(parallaxOffset)
     }
 }
 
-public extension View {
-    func parallax(multiplier: CGFloat = 50, maxOffset: CGFloat? = nil) -> some View {
+public extension SwiftUI.View {
+    func parallax(multiplier: CGFloat = 50, maxOffset: CGFloat? = nil) -> some SwiftUI.View {
         modifier(ParallaxViewModifier(multiplier: multiplier, maxOffset: maxOffset))
     }
 }

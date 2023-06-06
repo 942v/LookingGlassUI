@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension View {
+extension SwiftUI.View {
     
     /// Rotates this view’s rendered output in three dimensions using a quaternion.
     /// - Parameters:
@@ -16,7 +16,7 @@ extension View {
     ///   - anchorZ: The location with a default of 0 that defines a point in 3D space about which the rotation is anchored.
     ///   - perspective: The relative vanishing point with a default of 1 for this rotation.
     /// - Returns: A 3D rotated version of this view.
-    public func rotation3dEffect(quaternion: Quat, anchor: UnitPoint, anchorZ: CGFloat, perspective: CGFloat) -> some View {
+    public func rotation3dEffect(quaternion: Quat, anchor: UnitPoint, anchorZ: CGFloat, perspective: CGFloat) -> some SwiftUI.View {
         self
             .rotation3DEffect(
                 quaternion.angle,

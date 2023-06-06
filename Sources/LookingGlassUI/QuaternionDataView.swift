@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct QuaternionDataView: View {
+public struct QuaternionDataView: SwiftUI.View {
     let quat: Quat?
     
     public init(_ quat: Quat?) {
@@ -15,7 +15,7 @@ public struct QuaternionDataView: View {
     }
 
     @ViewBuilder
-    public var body: some View {
+    public var body: some SwiftUI.View {
         if let quat {
             Section(header: Text("Axis Vector and angle")) {
                 data("Axis Vector x", quat.axis.x)
@@ -34,7 +34,7 @@ public struct QuaternionDataView: View {
         }
     }
     
-    func data(_ label: String, _ value: Double) -> some View {
+    func data(_ label: String, _ value: Double) -> some SwiftUI.View {
         Text("\(label): \(value)")
             .accessibilityLabel(label)
             .accessibilityValue(String(value))

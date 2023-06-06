@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct MaskedOverlayViewModifier<OverlayContent: View>: ViewModifier {
+struct MaskedOverlayViewModifier<OverlayContent: SwiftUI.View>: ViewModifier {
     let overlayContent: OverlayContent
     let alignment: Alignment
     let blendMode: BlendMode
     
-    func body(content: Content) -> some View {
+    func body(content: Content) -> some SwiftUI.View {
         content
             .overlay(
                 overlayContent
@@ -27,10 +27,10 @@ struct MaskedOverlayViewModifier<OverlayContent: View>: ViewModifier {
     }
 }
 
-extension View {
+extension SwiftUI.View {
     /// Overlays a secondary view then uses primary view as a mask
     /// - Returns: A view that overlays a secondary view in front then masks it by the primary view
-    func maskedOverlay<OverlayContent: View>(_ overlayContent: OverlayContent, alignment: Alignment = .center, blendMode: BlendMode = .normal) -> some View {
+    func maskedOverlay<OverlayContent: SwiftUI.View>(_ overlayContent: OverlayContent, alignment: Alignment = .center, blendMode: BlendMode = .normal) -> some SwiftUI.View {
         self.modifier(MaskedOverlayViewModifier(overlayContent: overlayContent, alignment: alignment, blendMode: blendMode))
     }
 }

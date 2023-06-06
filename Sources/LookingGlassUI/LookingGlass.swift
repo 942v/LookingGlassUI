@@ -8,7 +8,7 @@
 import CoreMotion
 import SwiftUI
 
-public struct LookingGlass<Content: View>: View {
+public struct LookingGlass<Content: SwiftUI.View>: SwiftUI.View {
     @EnvironmentObject var motionManager: MotionManager
 
     let type: DeviceRotationEffectType
@@ -54,7 +54,7 @@ public struct LookingGlass<Content: View>: View {
         )
     }
     
-    public var body: some View {
+    public var body: some SwiftUI.View {
         if motionManager.isDetectingMotion {
             GeometryReader { proxy in
                 content

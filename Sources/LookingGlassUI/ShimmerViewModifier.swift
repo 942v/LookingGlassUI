@@ -35,7 +35,7 @@ struct ShimmerViewModifier: ViewModifier {
         motionManager.updateInterval > 0 && mode.isOn(colorScheme: colorScheme)
     }
     
-    @ViewBuilder func body(content: Content) -> some View {
+    @ViewBuilder func body(content: Content) -> some SwiftUI.View {
         if isShimmering {
             content
                 .overlay(
@@ -52,7 +52,7 @@ struct ShimmerViewModifier: ViewModifier {
     }
 }
 
-public extension View {
+public extension SwiftUI.View {
     /// Add a shimmer effect to the view
     /// - Parameters:
     ///   - mode: Modes where shimmer should be enabled (on by default)
@@ -60,7 +60,7 @@ public extension View {
     ///   - background: Background color (default: `.clear`)
     ///   - blendMode: How shimmer will blend with other views. (default: `.normal` when background is provided and `.screen` when not)
     /// - Returns: A view with a shimmer effect overlayed that is masked by the same view
-    func shimmer(mode: ShimmerMode? = nil, color: Color, background: Color? = nil, blendMode: BlendMode? = nil) -> some View {
+    func shimmer(mode: ShimmerMode? = nil, color: Color, background: Color? = nil, blendMode: BlendMode? = nil) -> some SwiftUI.View {
         self.modifier(ShimmerViewModifier(mode: mode, color: color, background: background, blendMode: blendMode))
     }
     
@@ -71,7 +71,7 @@ public extension View {
     ///   - background: Background color (default: `.clear`)
     ///   - blendMode: How shimmer will blend with other views. (default: `.normal` when background is provided and `.screen` when not)
     /// - Returns: A view with a shimmer effect overlayed that is masked by the same view
-    func shimmer(isOn: Bool, color: Color, background: Color? = nil, blendMode: BlendMode? = nil) -> some View {
+    func shimmer(isOn: Bool, color: Color, background: Color? = nil, blendMode: BlendMode? = nil) -> some SwiftUI.View {
         self.modifier(ShimmerViewModifier(mode: isOn ? .on : .off, color: color, background: background, blendMode: blendMode))
     }
 }

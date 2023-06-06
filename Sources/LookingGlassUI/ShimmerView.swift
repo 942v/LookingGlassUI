@@ -10,7 +10,7 @@ import SwiftUI
 /// An elliptical gradient that rotates in 3D space based on device orientation
 ///
 /// Takes all available space similar to `Color`
-public struct ShimmerView: View {
+public struct ShimmerView: SwiftUI.View {
     @EnvironmentObject var motionManager: MotionManager
     @Environment(\.colorScheme) var colorScheme
     
@@ -49,7 +49,7 @@ public struct ShimmerView: View {
         motionManager.updateInterval > 0 && mode.isOn(colorScheme: colorScheme)
     }
     
-    public var body: some View {
+    public var body: some SwiftUI.View {
         background
             .overlay(
                 Group {
